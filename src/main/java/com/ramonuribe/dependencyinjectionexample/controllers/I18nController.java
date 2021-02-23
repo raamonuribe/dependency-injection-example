@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ConstructorInjectedController {
+public class I18nController {
+
     private final GreetingService greetingService;
 
-    // Since Spring 4+ You don't need to add the autowired annotation for dependency injection when
-    // working with constructor based dependency injection
-//    @Autowired
-    public ConstructorInjectedController(@Qualifier("greetingServiceImpl") GreetingService greetingService) {
+    // Force of habit to add autowired.
+    @Autowired
+    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    public String getGreeting() {
+    public String sayHello() {
         return greetingService.sayGreeting();
     }
 }
