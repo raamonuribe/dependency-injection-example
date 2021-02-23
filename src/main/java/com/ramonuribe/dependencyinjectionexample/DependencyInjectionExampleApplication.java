@@ -1,5 +1,6 @@
 package com.ramonuribe.dependencyinjectionexample;
 
+import com.ramonuribe.dependencyinjectionexample.controllers.ConstructorInjectedController;
 import com.ramonuribe.dependencyinjectionexample.controllers.MyController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,10 @@ public class DependencyInjectionExampleApplication {
 
 		String greeting = myController.sayHello();
 		System.out.println(greeting);
+
+
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.getGreeting());
 	}
 
 }
